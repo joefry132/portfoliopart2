@@ -69,6 +69,33 @@ header {
     color: #ffffff;
 }
 
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: #ffffff;
+}
+
+.nav-toggle:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
 /* Hero Section */
 .hero {
     max-width: 1100px;
@@ -497,13 +524,30 @@ footer {
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .navbar {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
 
     .nav-links {
+        flex-basis: 100%;
         justify-content: center;
         flex-wrap: wrap;
         gap: 12px 18px;
+    }
+
+    html.js .nav-toggle {
+        display: flex;
+    }
+
+    html.js .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 8px;
+    }
+
+    html.js .navbar.is-open .nav-links {
+        display: flex;
     }
 
     .hero {
